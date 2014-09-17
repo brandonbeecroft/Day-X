@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DXViewController : UIViewController <UITextFieldDelegate>
+@interface DXViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 
 @end

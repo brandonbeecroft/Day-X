@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, weak) IBOutlet UITextView *textView;
+@property (nonatomic, weak) IBOutlet UIButton *clearButton;
 
 @end
 
@@ -34,6 +35,11 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (IBAction)clear:(id)sender {
+    self.textField.text = @"";
+    self.textView.text = @"";
 }
 
 @end
