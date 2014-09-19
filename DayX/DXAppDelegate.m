@@ -22,6 +22,13 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+
+
+
+    // NOTES:
+
+    // Bring the entryController over into this project
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
