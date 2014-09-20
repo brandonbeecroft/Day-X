@@ -20,6 +20,8 @@
 		711A508D19388096005642EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 711A508B19388096005642EF /* InfoPlist.strings */; };
 		711A508F19388096005642EF /* DayXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 711A508E19388096005642EF /* DayXTests.m */; };
 		E851893E19CCDE410036355D /* EntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = E851893D19CCDE410036355D /* EntryController.m */; };
+		E851894219CD1FC50036355D /* DXListViewTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E851894119CD1FC50036355D /* DXListViewTableDataSource.m */; };
+		E851894519CD21330036355D /* DXListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E851894419CD21330036355D /* DXListViewController.m */; };
 		E8DA2EAC19C924D7002AF569 /* DXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DA2EAA19C924D7002AF569 /* DXViewController.m */; };
 		E8DA2EAD19C924D7002AF569 /* DXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DA2EAB19C924D7002AF569 /* DXViewController.xib */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,10 @@
 		711A508E19388096005642EF /* DayXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayXTests.m; sourceTree = "<group>"; };
 		E851893C19CCDE410036355D /* EntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryController.h; sourceTree = "<group>"; };
 		E851893D19CCDE410036355D /* EntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryController.m; sourceTree = "<group>"; };
+		E851894019CD1FC50036355D /* DXListViewTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXListViewTableDataSource.h; sourceTree = "<group>"; };
+		E851894119CD1FC50036355D /* DXListViewTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXListViewTableDataSource.m; sourceTree = "<group>"; };
+		E851894319CD21330036355D /* DXListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXListViewController.h; sourceTree = "<group>"; };
+		E851894419CD21330036355D /* DXListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXListViewController.m; sourceTree = "<group>"; };
 		E8DA2EA919C924D7002AF569 /* DXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXViewController.h; sourceTree = "<group>"; };
 		E8DA2EAA19C924D7002AF569 /* DXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXViewController.m; sourceTree = "<group>"; };
 		E8DA2EAB19C924D7002AF569 /* DXViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DXViewController.xib; sourceTree = "<group>"; };
@@ -119,6 +125,10 @@
 				711A507919388095005642EF /* DXAppDelegate.m */,
 				E8DA2EA919C924D7002AF569 /* DXViewController.h */,
 				E8DA2EAA19C924D7002AF569 /* DXViewController.m */,
+				E851894019CD1FC50036355D /* DXListViewTableDataSource.h */,
+				E851894119CD1FC50036355D /* DXListViewTableDataSource.m */,
+				E851894319CD21330036355D /* DXListViewController.h */,
+				E851894419CD21330036355D /* DXListViewController.m */,
 				E8DA2EAB19C924D7002AF569 /* DXViewController.xib */,
 				E851893F19CCDE960036355D /* Classes */,
 				711A507B19388095005642EF /* Images.xcassets */,
@@ -262,10 +272,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E851894519CD21330036355D /* DXListViewController.m in Sources */,
 				711A507A19388095005642EF /* DXAppDelegate.m in Sources */,
 				E8DA2EAC19C924D7002AF569 /* DXViewController.m in Sources */,
 				E851893E19CCDE410036355D /* EntryController.m in Sources */,
 				711A507619388095005642EF /* main.m in Sources */,
+				E851894219CD1FC50036355D /* DXListViewTableDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
