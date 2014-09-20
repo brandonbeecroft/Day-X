@@ -26,7 +26,7 @@ static NSString * const appIdeaKey = @"appIdeaKey";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-    self.title = @"Day X";
+    self.title = @"Entry";
     self.appTitle.delegate = self;
     self.appIdeaTextView.delegate = self;
 
@@ -70,6 +70,8 @@ static NSString * const appIdeaKey = @"appIdeaKey";
 
     [[NSUserDefaults standardUserDefaults] setObject:app forKey:appKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
+
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)updateAppDictionary:(NSDictionary *)dictionary {
