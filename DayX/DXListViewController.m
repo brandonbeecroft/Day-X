@@ -9,6 +9,7 @@
 #import "DXListViewController.h"
 #import "DXListViewTableDataSource.h"
 #import "DXViewController.h"
+#import "EntryController.h"
 
 @interface DXListViewController () <UITableViewDelegate>
 
@@ -44,15 +45,33 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // find the dict from the indexPath value in NSUserDefaults
+
+    // find the object from the indexPath value in NSUserDefaults
     // push a new view controller with that dictionary.
 
+    DXViewController *detailViewController = [DXViewController new];
+    DXEntry *entry = [EntryController sharedInstance].entries[indexPath.row];
+    //NSLog(@"%@",entry.title);
+    detailViewController.appEntry = entry;
+    //[detailViewController configureWithObject:entry];
+    detailViewController.isNewEntry = NO;
+
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:detailViewController animated:YES];
+
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
 }
 
 -(void)addNewAppIdea {
     DXViewController *addAppDetail = [DXViewController new];
+    addAppDetail.isNewEntry = YES;
     [self.navigationController pushViewController:addAppDetail animated:YES];
 }
+
+
 
 
 @end

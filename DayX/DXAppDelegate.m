@@ -9,6 +9,8 @@
 #import "DXAppDelegate.h"
 #import "DXViewController.h"
 #import "DXListViewController.h"
+#import "EntryController.h"
+#import "DXEntry.h"
 
 @implementation DXAppDelegate
 
@@ -16,9 +18,17 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+    NSLog(@"%ld entries stored",(unsigned long)[[EntryController sharedInstance].entries count]);
+
+
+    //DXEntry *newEntry = [DXEntry new];
+
     DXListViewController *viewController = [DXListViewController new];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController = navController;
+
+
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

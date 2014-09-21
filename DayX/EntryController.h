@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DXEntry.h"
 
 @interface EntryController : NSObject
 
@@ -14,8 +15,8 @@
 
 + (EntryController *)sharedInstance;
 
-- (void)addEntry:(NSDictionary *)entry;
+- (void)addEntry:(DXEntry *)entry;
 - (void)removeEntry:(NSDictionary *)entry;
-- (void)replaceEntry:(NSDictionary *)oldEntry withEntry:(NSDictionary *)newEntry;
+- (void)replaceEntry:(DXEntry *)oldEntry withEntry:(DXEntry *)newEntry;
 
 @end

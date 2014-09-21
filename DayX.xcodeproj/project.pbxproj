@@ -19,6 +19,7 @@
 		711A508519388096005642EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711A506D19388095005642EF /* UIKit.framework */; };
 		711A508D19388096005642EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 711A508B19388096005642EF /* InfoPlist.strings */; };
 		711A508F19388096005642EF /* DayXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 711A508E19388096005642EF /* DayXTests.m */; };
+		E821B7FB19CDDBFD00482B19 /* DXEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E821B7FA19CDDBFD00482B19 /* DXEntry.m */; };
 		E851893E19CCDE410036355D /* EntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = E851893D19CCDE410036355D /* EntryController.m */; };
 		E851894219CD1FC50036355D /* DXListViewTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E851894119CD1FC50036355D /* DXListViewTableDataSource.m */; };
 		E851894519CD21330036355D /* DXListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E851894419CD21330036355D /* DXListViewController.m */; };
@@ -53,6 +54,8 @@
 		711A508A19388096005642EF /* DayXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DayXTests-Info.plist"; sourceTree = "<group>"; };
 		711A508C19388096005642EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		711A508E19388096005642EF /* DayXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayXTests.m; sourceTree = "<group>"; };
+		E821B7F919CDDBFD00482B19 /* DXEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXEntry.h; sourceTree = "<group>"; };
+		E821B7FA19CDDBFD00482B19 /* DXEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXEntry.m; sourceTree = "<group>"; };
 		E851893C19CCDE410036355D /* EntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryController.h; sourceTree = "<group>"; };
 		E851893D19CCDE410036355D /* EntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryController.m; sourceTree = "<group>"; };
 		E851894019CD1FC50036355D /* DXListViewTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXListViewTableDataSource.h; sourceTree = "<group>"; };
@@ -125,10 +128,10 @@
 				711A507919388095005642EF /* DXAppDelegate.m */,
 				E8DA2EA919C924D7002AF569 /* DXViewController.h */,
 				E8DA2EAA19C924D7002AF569 /* DXViewController.m */,
-				E851894019CD1FC50036355D /* DXListViewTableDataSource.h */,
-				E851894119CD1FC50036355D /* DXListViewTableDataSource.m */,
 				E851894319CD21330036355D /* DXListViewController.h */,
 				E851894419CD21330036355D /* DXListViewController.m */,
+				E851894019CD1FC50036355D /* DXListViewTableDataSource.h */,
+				E851894119CD1FC50036355D /* DXListViewTableDataSource.m */,
 				E8DA2EAB19C924D7002AF569 /* DXViewController.xib */,
 				E851893F19CCDE960036355D /* Classes */,
 				711A507B19388095005642EF /* Images.xcassets */,
@@ -169,6 +172,8 @@
 		E851893F19CCDE960036355D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E821B7F919CDDBFD00482B19 /* DXEntry.h */,
+				E821B7FA19CDDBFD00482B19 /* DXEntry.m */,
 				E851893C19CCDE410036355D /* EntryController.h */,
 				E851893D19CCDE410036355D /* EntryController.m */,
 			);
@@ -275,6 +280,7 @@
 				E851894519CD21330036355D /* DXListViewController.m in Sources */,
 				711A507A19388095005642EF /* DXAppDelegate.m in Sources */,
 				E8DA2EAC19C924D7002AF569 /* DXViewController.m in Sources */,
+				E821B7FB19CDDBFD00482B19 /* DXEntry.m in Sources */,
 				E851893E19CCDE410036355D /* EntryController.m in Sources */,
 				711A507619388095005642EF /* main.m in Sources */,
 				E851894219CD1FC50036355D /* DXListViewTableDataSource.m in Sources */,

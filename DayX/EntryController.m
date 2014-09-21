@@ -7,6 +7,7 @@
 //
 
 #import "EntryController.h"
+#import "DXEntry.h"
 
 static NSString * const entryListKey = @"entryList";
 
@@ -29,7 +30,7 @@ static NSString * const entryListKey = @"entryList";
     return sharedInstance;
 }
 
-- (void)addEntry:(NSDictionary *)entry {
+- (void)addEntry:(DXEntry *)entry {
 
     if (!entry) {
         return;
@@ -56,7 +57,7 @@ static NSString * const entryListKey = @"entryList";
 
 }
 
-- (void)replaceEntry:(NSDictionary *)oldEntry withEntry:(NSDictionary *)newEntry {
+- (void)replaceEntry:(DXEntry *)oldEntry withEntry:(DXEntry *)newEntry {
 
     if (!oldEntry || !newEntry) {
         return;
@@ -70,22 +71,41 @@ static NSString * const entryListKey = @"entryList";
     }
     
     self.entries = mutableEntries;
-    [self synchronize];
-
-    
-    
+    [self synchronize];  
 }
 
+//- (void)loadFromDefaults {
+//    
+//    NSArray *entryDictionaries = [[NSUserDefaults standardUserDefaults] objectForKey:entryListKey];
+//    self.entries = entryDictionaries;
+//    
+//}
+
 - (void)loadFromDefaults {
-    
+
     NSArray *entryDictionaries = [[NSUserDefaults standardUserDefaults] objectForKey:entryListKey];
-    self.entries = entryDictionaries;
+
+    NSMutableArray *entries = [NSMutableArray new];
+    for (int x = 0; x < entryDictionaries.count; x++) {
+        NSDictionary *dictionary = entryDictionaries[x];
+        DXEntry *entry = [[DXEntry alloc] initWithDictionary:dictionary];
+        [entries addObject:entry];
+    }
+
+    if (entries != nil) {
+        self.entries = entries;
+    }
     
 }
 
 - (void)synchronize {
-    
-    [[NSUserDefaults standardUserDefaults] setObject:self.entries forKey:entryListKey];
+
+    NSMutableArray *entryDictionaries = [NSMutableArray new];
+    for (DXEntry *entry in self.entries) {
+        [entryDictionaries addObject:[entry entryDictionary]];
+    }
+
+    [[NSUserDefaults standardUserDefaults] setObject:entryDictionaries forKey:entryListKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
 }

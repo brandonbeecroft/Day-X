@@ -7,16 +7,15 @@
 //
 
 #import "DXViewController.h"
+#import "DXListViewController.h"
+#import "DXEntry.h"
+#import "EntryController.h"
 
 static NSString * const appKey = @"appKey";
 static NSString * const appTitleKey = @"appTitleKey";
 static NSString * const appIdeaKey = @"appIdeaKey";
 
 @interface DXViewController ()
-
-@property (nonatomic, weak) IBOutlet UITextField *appTitle;
-@property (nonatomic, weak) IBOutlet UITextView *appIdeaTextView;
-@property (nonatomic, weak) IBOutlet UIButton *clearButton;
 
 @end
 
@@ -32,12 +31,18 @@ static NSString * const appIdeaKey = @"appIdeaKey";
 
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(saveEntry)];
     [self.navigationItem setRightBarButtonItem:saveButton];
-    UIBarButtonItem *clearButton = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStylePlain target:self action:@selector(clear)];
+    UIBarButtonItem *clearButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
     [self.navigationItem setLeftBarButtonItem:clearButton];
 
-    NSDictionary *app = [[NSUserDefaults standardUserDefaults] objectForKey:appKey];
-    [self updateAppDictionary:app];
+    if (_isNewEntry == YES) {
+        NSLog(@"New Entry");
+    }
 
+    if (_isNewEntry == NO) {
+        NSLog(@"This is not a new entry");
+        self.appTitle.text = _appEntry.title;
+        self.appIdeaTextView.text = _appEntry.note;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,39 +55,37 @@ static NSString * const appIdeaKey = @"appIdeaKey";
     return YES;
 }
 
-- (IBAction)clear {
+- (IBAction)cancel {
     // set an alert view to make sure they want to clear
+    [self.navigationController popToRootViewControllerAnimated:YES];
+
     self.appTitle.text = @"";
     self.appIdeaTextView.text = @"";
 }
 
 -(void)saveEntry {
-    NSLog(@"Entry Saved method");
     [self.appIdeaTextView resignFirstResponder];
 
-    NSMutableDictionary *app = [NSMutableDictionary new];
-    if (self.appTitle.text) {
-        [app setObject:self.appTitle.text forKey:appTitleKey];
-    }
-    if (self.appIdeaTextView.text) {
-        [app setObject:self.appIdeaTextView.text forKey:appIdeaKey];
-    }
+    DXEntry *entry = [DXEntry new];
+    entry.title = self.appTitle.text;
+    entry.note = self.appIdeaTextView.text;
+    entry.timeStamp = [NSDate date];
 
-    [[NSUserDefaults standardUserDefaults] setObject:app forKey:appKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-
+    if (_isNewEntry) {
+        [[EntryController sharedInstance] addEntry:entry];
+    } else {
+        NSLog(@"this is not a new entry!");
+        // use the replace method
+        [[EntryController sharedInstance] replaceEntry:_appEntry withEntry:entry];
+}
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
--(void)updateAppDictionary:(NSDictionary *)dictionary {
-    NSString *appTitle = dictionary[appTitleKey];
-    NSString *appText = dictionary[appIdeaKey];
+//-(void)configureWithObject:(DXEntry *)entry {
+//    self.appTitle.text = entry.title;
+//    self.appIdeaTextView.text = entry.note;
+//}
 
-    if (appTitle && appText) {
-        self.appTitle.text = appTitle;
-        self.appIdeaTextView.text = appText;
-    }
-
-}
 
 @end
